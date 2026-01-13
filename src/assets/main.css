@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Entity Card Styles */
+.entity-card {
+  min-width: 240px;
+}
+
+.grid-bg {
+  background-image: linear-gradient(#e5e7eb 1px, transparent 1px),
+    linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Attribute Row Styles */
+.attr-row:hover {
+  background-color: #f3f4f6;
+}
+
+.attr-row:hover .attr-actions {
+  opacity: 1;
+}
+
+.attr-row:hover .drag-handle {
+  opacity: 1;
+}
+
+.attr-actions {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.attr-row {
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.attr-row.dragging {
+  background: #dbeafe;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+.attr-row.dragging .drag-handle {
+  opacity: 1;
+  color: #3b82f6;
+}
+
+/* Drag Handle */
+.drag-handle {
+  opacity: 0;
+  cursor: grab;
+  padding: 0 4px;
+  color: #9ca3af;
+  transition: opacity 0.15s;
+  user-select: none;
+}
+
+.drag-handle:hover {
+  color: #6b7280;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Badge Styles */
+.badge {
+  font-size: 9px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  margin-left: 2px;
+}
+
+/* Key Icons */
+.key-icon {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.pk-icon {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.fk-icon {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: absolute;
+  background: #1f2937;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  z-index: 100;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+  white-space: pre-line;
+  max-width: 220px;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent;
+}
+
+/* Modal Styles */
+.modal-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.modal-label {
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.modal-section {
+  margin-bottom: 12px;
+}
+
+/* Toggle Button Styles */
+.toggle-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 500;
+  position: relative;
+}
+
+.toggle-on {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+
+.toggle-off {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.toggle-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  margin-bottom: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  font-weight: normal;
+}
+
+.toggle-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #1f2937 transparent transparent;
+}
+
+.toggle-btn:hover .toggle-tooltip {
+  opacity: 1;
+}
+
+/* Color Preset */
+.color-preset {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-preset.selected {
+  border-color: #1f2937;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3b82f6;
+}
+
+/* Entity Type Card */
+.entity-type-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.entity-type-card:hover {
+  border-color: #93c5fd;
+  background: #f0f9ff;
+}
+
+.entity-type-card.selected {
+  border-color: #3b82f6;
+  background: #dbeafe;
+}
+
+/* Relation Item */
+.relation-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.relation-item.pending-delete {
+  background: #fef2f2;
+  border-color: #fecaca;
+  opacity: 0.7;
+}
+
+.relation-item.pending-add {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+/* Tab Styles */
+.tab-btn {
+  padding: 8px 16px;
+  font-size: 12px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+/* Pending Badge */
+.pending-badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+/* Language Button */
+.lang-btn {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+}
