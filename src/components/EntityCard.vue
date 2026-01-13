@@ -95,7 +95,6 @@ const isHovering = (attrId: number) => {
         @drop="emit('attrDrop', $event)"
       >
         <div class="flex items-center gap-1">
-          <span class="drag-handle" @mousedown.stop>⋮⋮</span>
           <span class="w-6 flex gap-0.5">
             <span v-if="attr.pk" class="key-icon pk-icon">PK</span>
             <span v-if="attr.fk" class="key-icon fk-icon">FK</span>
